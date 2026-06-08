@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель — IURCHENKO</title>
+
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
+
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Подключение шрифтов Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;700&family=Press+Start+2P&family=Rubik+Glitch&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome для иконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body data-theme="light">
+
+<!-- ============================================ -->
+<!-- ОСНОВНОЙ КОНТЕЙНЕР САЙТА -->
+<!-- ============================================ -->
+<div id="wrapper">
+
+    <!-- ==================== ШАПКА САЙТА ==================== -->
+    <header>
+        <!-- Логотип / Название админ-панели -->
+        <h1 class="rubik-glitch-regular">ADMIN</h1>
+
+        <!-- ДЕСКТОПНОЕ МЕНЮ -->
+        <nav class="montserrat-underline-nav desktop-nav">
+            <ul class="horizontal-menu">
+                <li><a href="home.html">На сайт</a></li>
+                <li><a href="admin.html" class="active">Админ-панель</a></li>
+            </ul>
+        </nav>
+
+        <!-- КНОПКА МОБИЛЬНОГО МЕНЮ -->
+        <button class="mobile-menu-btn" id="mobile-menu-btn">☰</button>
+
+        <!-- МОБИЛЬНОЕ МЕНЮ -->
+        <nav class="mobile-menu" id="mobile-menu">
+            <ul class="vertical-menu">
+                <li><a href="home.html">На сайт</a></li>
+                <li><a href="admin.html">Админ-панель</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==================== ОСНОВНОЙ КОНТЕНТ ==================== -->
+    <main>
+        <div class="admin-container">
+
+            <!-- ========== БОКОВОЕ МЕНЮ (SIDEBAR) ========== -->
+            <aside class="admin-sidebar">
+                <!-- Информация о текущем администраторе -->
+                <div class="admin-user">
+                    <img src="https://via.placeholder.com/50" alt="Admin" class="admin-avatar">
+                    <div class="admin-info">
+                        <h4>Алексей Иванов</h4>
+                        <span>Администратор</span>
+                    </div>
+                </div>
+
+                <!-- Навигация по разделам админ-панели -->
+                <nav class="admin-nav">
+                    <button class="admin-nav-btn active" data-tab="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Дашборд
+                    </button>
+                    <button class="admin-nav-btn" data-tab="blog">
+                        <i class="fas fa-blog"></i> Блог
+                    </button>
+                    <button class="admin-nav-btn" data-tab="gallery">
+                        <i class="fas fa-images"></i> Галерея
+                    </button>
+                    <button class="admin-nav-btn" data-tab="projects">
+                        <i class="fas fa-project-diagram"></i> Проекты
+                    </button>
+                    <button class="admin-nav-btn" data-tab="users">
+                        <i class="fas fa-users"></i> Пользователи
+                    </button>
+                    <button class="admin-nav-btn" data-tab="settings">
+                        <i class="fas fa-cog"></i> Настройки
+                    </button>
+                </nav>
+            </aside>
+
+            <!-- ========== ОСНОВНОЙ КОНТЕНТ АДМИН-ПАНЕЛИ ========== -->
+            <div class="admin-content">
+
+                <!-- === 1. ДАШБОРД (статистика) === -->
+                <div id="dashboard-tab" class="admin-tab active">
+                    <h2><i class="fas fa-tachometer-alt"></i> Дашборд</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-blog"></i></div>
+                            <div class="stat-info">
+                                <h3>Статьи</h3>
+                                <p class="stat-number" id="statsPosts">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-images"></i></div>
+                            <div class="stat-info">
+                                <h3>Фото</h3>
+                                <p class="stat-number" id="statsPhotos">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-project-diagram"></i></div>
+                            <div class="stat-info">
+                                <h3>Проекты</h3>
+                                <p class="stat-number" id="statsProjects">0</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon"><i class="fas fa-users"></i></div>
+                            <div class="stat-info">
+                                <h3>Пользователи</h3>
+                                <p class="stat-number" id="statsUsers">0</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- === 2. УПРАВЛЕНИЕ БЛОГОМ === -->
+                <div id="blog-tab" class="admin-tab">
+                    <h2><i class="fas fa-blog"></i> Управление блогом</h2>
+                    <button class="admin-add-btn" onclick="openPostModal()">
+                        <i class="fas fa-plus"></i> Добавить статью
+                    </button>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Заголовок</th>
+                                    <th>Категория</th>
+                                    <th>Дата</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="postsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- === 3. УПРАВЛЕНИЕ ГАЛЕРЕЕЙ === -->
+                <div id="gallery-tab" class="admin-tab">
+                    <h2><i class="fas fa-images"></i> Управление галереей</h2>
+                    <button class="admin-add-btn" onclick="openPhotoModal()">
+                        <i class="fas fa-plus"></i> Добавить фото
+                    </button>
+                    <div class="admin-gallery-grid" id="adminGalleryGrid"></div>
+                </div>
+
+                <!-- === 4. УПРАВЛЕНИЕ ПРОЕКТАМИ === -->
+                <div id="projects-tab" class="admin-tab">
+                    <h2><i class="fas fa-project-diagram"></i> Управление проектами</h2>
+                    <button class="admin-add-btn" onclick="openProjectModal()">
+                        <i class="fas fa-plus"></i> Добавить проект
+                    </button>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Название</th>
+                                    <th>Категория</th>
+                                    <th>Статус</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="projectsTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- === 5. УПРАВЛЕНИЕ ПОЛЬЗОВАТЕЛЯМИ === -->
+                <div id="users-tab" class="admin-tab">
+                    <h2><i class="fas fa-users"></i> Управление пользователями</h2>
+                    <button class="admin-add-btn" onclick="openUserModal()">
+                        <i class="fas fa-plus"></i> Добавить пользователя
+                    </button>
+                    <div class="admin-table-wrapper">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Имя</th>
+                                    <th>Email</th>
+                                    <th>Роль</th>
+                                    <th>Статус</th>
+                                    <th>Действия</th>
+                                </tr>
+                            </thead>
+                            <tbody id="usersTableBody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- === 6. НАСТРОЙКИ САЙТА === -->
+                <div id="settings-tab" class="admin-tab">
+                    <h2><i class="fas fa-cog"></i> Настройки сайта</h2>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Название сайта</label>
+                            <input type="text" id="siteTitle" value="IURCHENKO Portfolio">
+                        </div>
+                        <div class="form-group">
+                            <label>Email для связи</label>
+                            <input type="email" id="siteEmail" value="admin@iurchenko.ru">
+                        </div>
+                        <div class="form-group">
+                            <label>Акцентный цвет</label>
+                            <input type="color" id="accentColor" value="#00dd8a">
+                        </div>
+                        <div class="form-group">
+                            <label>Режим по умолчанию</label>
+                            <select id="defaultTheme">
+                                <option value="light">Светлая</option>
+                                <option value="dark">Тёмная</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary" onclick="saveSettings()">Сохранить настройки</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== ПОДВАЛ САЙТА ==================== -->
+    <footer>
+        <p>© 2025 IURCHENKO Admin Panel</p>
+    </footer>
+</div>
+
+<!-- ============================================ -->
+<!-- МОДАЛЬНЫЕ ОКНА -->
+<!-- ============================================ -->
+
+<!-- Модальное окно для постов (статей блога) -->
+<div id="postModal" class="admin-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h3 id="postModalTitle">Добавить статью</h3>
+        <form id="postForm">
+            <input type="hidden" id="postId">
+            <div class="form-group">
+                <label>Заголовок</label>
+                <input type="text" id="postTitle" required>
+            </div>
+            <div class="form-group">
+                <label>Категория</label>
+                <select id="postCategory">
+                    <option value="frontend">Frontend</option>
+                    <option value="backend">Backend</option>
+                    <option value="design">UI/UX Дизайн</option>
+                    <option value="career">Карьера</option>
+                    <option value="tutorial">Туториалы</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Краткое описание</label>
+                <textarea id="postExcerpt" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Содержание</label>
+                <textarea id="postContent" rows="8"></textarea>
+            </div>
+            <div class="form-group">
+                <label>URL изображения</label>
+                <input type="text" id="postImage">
+            </div>
+            <button type="submit" class="btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<!-- Модальное окно для пользователей -->
+<div id="userModal" class="admin-modal">
+    <div class="modal-content">
+        <span class="modal-close">&times;</span>
+        <h3 id="userModalTitle">Добавить пользователя</h3>
+        <form id="userForm">
+            <input type="hidden" id="userId">
+            <div class="form-group">
+                <label>Имя</label>
+                <input type="text" id="userName" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" id="userEmail" required>
+            </div>
+            <div class="form-group">
+                <label>Пароль</label>
+                <input type="password" id="userPassword">
+            </div>
+            <div class="form-group">
+                <label>Роль</label>
+                <select id="userRole">
+                    <option value="admin">Администратор</option>
+                    <option value="editor">Редактор</option>
+                    <option value="user">Пользователь</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-primary">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+<!-- ============================================ -->
+<!-- КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ (светлая/темная) -->
+<!-- ============================================ -->
+<button id="theme-mode" onclick="toggleTheme()">🌙</button>
+
+<!-- ============================================ -->
+<!-- ПОДКЛЮЧЕНИЕ JAVASCRIPT ФАЙЛОВ -->
+<!-- ============================================ -->
+<script src="js/admin.js"></script>
+<script src="js/home.js"></script>
+
+</body>
+</html>

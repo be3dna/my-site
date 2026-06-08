@@ -1,0 +1,573 @@
+/* ============================================ */
+/* gallery.css — стили для страницы галереи    */
+/* ============================================ */
+
+/* ============================================ */
+/* HERO СЕКЦИЯ ГАЛЕРЕИ                         */
+/* ============================================ */
+
+.gallery-hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 8%, transparent) 0%, transparent 100%);
+}
+
+.gallery-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    /* Градиентный текст */
+    background: linear-gradient(135deg, var(--text-color), var(--accent-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.gallery-hero p {
+    font-size: 1.2rem;
+    color: color-mix(in srgb, var(--text-color) 65%, white);
+}
+
+/* ============================================ */
+/* ФИЛЬТРЫ АЛЬБОМОВ                            */
+/* ============================================ */
+
+.gallery-filters {
+    padding: 20px 20px 40px;
+}
+
+.album-filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.album-btn {
+    padding: 10px 28px;
+    border: 1px solid color-mix(in srgb, var(--text-color) 20%, white);
+    background: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--text-color) 80%, white);
+}
+
+.album-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.album-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+}
+
+/* ============================================ */
+/* СЕТКА ГАЛЕРЕИ                               */
+/* ============================================ */
+
+.gallery-grid-section {
+    padding: 20px 20px 60px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ============================================ */
+/* КАРТОЧКА ФОТОГРАФИИ                         */
+/* ============================================ */
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    cursor: pointer;
+    background: color-mix(in srgb, var(--text-color) 5%, white);
+    aspect-ratio: 4 / 3;
+    /* Соотношение сторон 4:3 */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.5s ease forwards;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+/* Анимация появления карточек */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.gallery-item:hover {
+    box-shadow: 0 10px 30px rgba(0, 221, 138, 0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Увеличение картинки при наведении */
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* === Оверлей с описанием (появляется при наведении) === */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85), transparent);
+    padding: 20px 15px 12px;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-title {
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.gallery-album {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.75rem;
+    margin-top: 4px;
+}
+
+/* ============================================ */
+/* ЛАЙТБОКС (ПРОСМОТР ФОТОГРАФИЙ)             */
+/* ============================================ */
+
+.lightbox {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+}
+
+/* Изображение в лайтбоксе */
+.lightbox-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    animation: zoomIn 0.3s ease;
+}
+
+/* Анимация увеличения при открытии */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Подпись к изображению в лайтбоксе */
+.lightbox-caption {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    font-size: 1rem;
+    padding: 8px 20px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 40px;
+    white-space: nowrap;
+    max-width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Кнопка закрытия лайтбокса */
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    z-index: 2001;
+}
+
+.lightbox-close:hover {
+    color: var(--accent-color);
+}
+
+/* Кнопки навигации (вперёд/назад) */
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 20px 15px;
+    transition: all 0.3s ease;
+    z-index: 2001;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: var(--accent-color);
+    color: #000;
+}
+
+/* Счётчик изображений (текущее / всего) */
+.lightbox-counter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    z-index: 2001;
+}
+
+/* ============================================ */
+/* УПРАВЛЕНИЕ АВТОПРОКРУТКОЙ (ОСНОВНОЙ БЛОК)  */
+/* ============================================ */
+
+.autoplay-controls-section {
+    padding: 50px 20px;
+    background: linear-gradient(135deg, rgba(0, 221, 138, 0.05) 0%, transparent 100%);
+    border-top: 1px solid rgba(0, 221, 138, 0.15);
+    border-bottom: 1px solid rgba(0, 221, 138, 0.15);
+    margin: 40px 0;
+}
+
+.autoplay-controls-section h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+.autoplay-controls {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Выбор скорости автопрокрутки */
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.speed-control label {
+    font-weight: 500;
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
+.speed-select {
+    padding: 10px 15px;
+    border: 2px solid var(--accent-color);
+    border-radius: 8px;
+    background: var(--background-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.speed-select:hover {
+    border-color: #00cc7a;
+    box-shadow: 0 0 5px rgba(0, 221, 138, 0.3);
+}
+
+/* Группа кнопок управления */
+.action-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.autoplay-btn {
+    padding: 10px 25px;
+    background: var(--accent-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.autoplay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 221, 138, 0.3);
+}
+
+/* Кнопка остановки (красная) */
+.autoplay-btn.stop {
+    background: #ff4444;
+    color: white;
+}
+
+.autoplay-btn.stop:hover {
+    background: #cc0000;
+    box-shadow: 0 5px 15px rgba(255, 68, 68, 0.3);
+}
+
+/* Статус автопрокрутки */
+.autoplay-status {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(0, 221, 138, 0.1);
+    color: var(--accent-color);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+/* ============================================ */
+/* УПРАВЛЕНИЕ АВТОПРОКРУТКОЙ В ЛАЙТБОКСЕ       */
+/* ============================================ */
+
+.lightbox-autoplay {
+    position: absolute;
+    bottom: 100px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1001;
+}
+
+/* Кнопка включения/выключения автопрокрутки */
+.autoplay-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.autoplay-icon:hover {
+    background: var(--accent-color);
+    color: #000;
+    transform: scale(1.05);
+}
+
+/* Состояние активной автопрокрутки (с анимацией пульсации) */
+.autoplay-icon.running {
+    background: var(--accent-color);
+    color: #000;
+    animation: pulse 1.5s infinite;
+}
+
+/* Панель выбора скорости в лайтбоксе */
+.autoplay-speed-panel {
+    display: flex;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 8px 12px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.autoplay-speed-panel span {
+    padding: 4px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+.autoplay-speed-panel span:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.autoplay-speed-panel span.active {
+    background: var(--accent-color);
+    color: #000;
+}
+
+/* ============================================ */
+/* АНИМАЦИИ                                     */
+/* ============================================ */
+
+/* Пульсация для активной автопрокрутки */
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+/* ============================================ */
+/* АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)            */
+/* ============================================ */
+
+/* Планшеты и мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+
+    /* Hero секция */
+    .gallery-hero h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Сетка галереи */
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 15px;
+    }
+
+    /* Кнопки фильтров альбомов */
+    .album-btn {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+    }
+
+    /* Лайтбокс — навигационные кнопки */
+    .lightbox-prev,
+    .lightbox-next {
+        width: 40px;
+        height: 40px;
+        font-size: 24px;
+    }
+
+    .lightbox-prev {
+        left: 10px;
+    }
+
+    .lightbox-next {
+        right: 10px;
+    }
+
+    /* Подпись в лайтбоксе */
+    .lightbox-caption {
+        font-size: 0.8rem;
+        bottom: 15px;
+        white-space: normal;
+        max-width: 90%;
+    }
+
+    /* Кнопка закрытия */
+    .lightbox-close {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+
+    /* Управление автопрокруткой в основном блоке */
+    .autoplay-controls {
+        gap: 15px;
+    }
+
+    .speed-control {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .autoplay-btn {
+        padding: 8px 18px;
+        font-size: 0.9rem;
+    }
+
+    /* Управление автопрокруткой в лайтбоксе */
+    .lightbox-autoplay {
+        bottom: 80px;
+        right: 15px;
+    }
+
+    .autoplay-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+
+    .autoplay-speed-panel span {
+        padding: 3px 8px;
+        font-size: 0.7rem;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+}

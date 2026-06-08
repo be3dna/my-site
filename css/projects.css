@@ -1,0 +1,572 @@
+/* ============================================ */
+/* projects.css — стили для страницы проектов  */
+/* ============================================ */
+
+/* ============================================ */
+/* HERO СЕКЦИЯ ПРОЕКТОВ                        */
+/* ============================================ */
+
+.projects-hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color) 8%, transparent) 0%, transparent 100%);
+}
+
+.projects-hero h2 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    /* Градиентный текст */
+    background: linear-gradient(135deg, var(--text-color), var(--accent-color));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.projects-hero p {
+    font-size: 1.2rem;
+    color: color-mix(in srgb, var(--text-color) 65%, white);
+}
+
+/* ============================================ */
+/* ФИЛЬТРЫ ПРОЕКТОВ                            */
+/* ============================================ */
+
+.projects-filters {
+    padding: 20px 20px 40px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.filter-btn {
+    padding: 10px 24px;
+    border: 1px solid color-mix(in srgb, var(--text-color) 20%, white);
+    background: transparent;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: color-mix(in srgb, var(--text-color) 80%, white);
+}
+
+.filter-btn:hover {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #000;
+}
+
+/* ============================================ */
+/* СЕТКА ПРОЕКТОВ                              */
+/* ============================================ */
+
+.projects-grid-section {
+    padding: 20px 20px 60px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 35px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================ */
+/* КАРТОЧКА ПРОЕКТА (ОСНОВНАЯ)                 */
+/* ============================================ */
+
+.project-card {
+    background: var(--background-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 221, 138, 0.1);
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 221, 138, 0.15);
+    border-color: var(--accent-color);
+}
+
+/* Изображение проекта */
+.project-image {
+    position: relative;
+    height: 220px;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+/* Год проекта (бейдж) */
+.project-year {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* Оверлей при наведении */
+.project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: color-mix(in srgb, var(--accent-color) 80%, transparent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+    opacity: 1;
+}
+
+.view-details {
+    background: white;
+    color: var(--accent-color);
+    padding: 12px 24px;
+    border-radius: 40px;
+    font-weight: 600;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .view-details {
+    transform: translateY(0);
+}
+
+/* Контент карточки */
+.project-content {
+    padding: 25px;
+}
+
+.project-category {
+    display: inline-block;
+    padding: 4px 12px;
+    background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.project-title {
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    line-height: 1.3;
+    color: var(--text-color);
+}
+
+.project-description {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: color-mix(in srgb, var(--text-color) 70%, white);
+}
+
+/* Технологии проекта */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tech-badge {
+    padding: 4px 10px;
+    background: color-mix(in srgb, var(--text-color) 5%, white);
+    border-radius: 12px;
+    font-size: 0.7rem;
+    color: color-mix(in srgb, var(--text-color) 70%, white);
+}
+
+/* Ссылки проекта */
+.project-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--accent-color);
+    gap: 8px;
+}
+
+/* Кнопка "Подробнее" */
+.project-details-btn {
+    background: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.project-details-btn:hover {
+    background: var(--accent-color);
+    color: #000;
+    transform: translateX(5px);
+}
+
+/* Анимация появления карточек */
+.project-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ============================================ */
+/* СТАТИСТИКА ПРОЕКТОВ                         */
+/* ============================================ */
+
+.projects-stats {
+    padding: 60px 20px;
+    background: color-mix(in srgb, var(--accent-color) 5%, transparent);
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 20px 30px;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    color: color-mix(in srgb, var(--text-color) 60%, white);
+    font-size: 0.9rem;
+}
+
+/* ============================================ */
+/* МОДАЛЬНОЕ ОКНО ПРОЕКТА (ДЕТАЛИ)             */
+/* ============================================ */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 800px;
+    width: 90%;
+    max-height: 85vh;
+    background: var(--background-color);
+    border-radius: 24px;
+    overflow-y: auto;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Кнопка закрытия модального окна */
+.modal-close {
+    position: sticky;
+    top: 15px;
+    right: 25px;
+    float: right;
+    font-size: 35px;
+    cursor: pointer;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+    margin: 10px 10px 0 0;
+}
+
+.modal-close:hover {
+    background: var(--accent-color);
+    color: #000;
+    transform: rotate(90deg);
+}
+
+/* Заголовок модального окна */
+.modal-header {
+    padding: 30px 30px 0;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    padding-right: 50px;
+}
+
+/* Мета-информация в модальном окне */
+.modal-meta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(0, 221, 138, 0.2);
+}
+
+.modal-meta span {
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+/* Изображение в модальном окне */
+.modal-image {
+    width: 100%;
+    max-height: 350px;
+    overflow: hidden;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Основное содержимое модального окна */
+.modal-body-content {
+    padding: 25px 30px 35px;
+}
+
+.modal-body-content h3 {
+    font-size: 1.2rem;
+    margin: 20px 0 10px;
+    color: var(--accent-color);
+}
+
+.modal-body-content h3:first-of-type {
+    margin-top: 0;
+}
+
+.modal-body-content p {
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--text-color) 80%, white);
+}
+
+/* Теги в модальном окне */
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.modal-tags span {
+    background: rgba(0, 221, 138, 0.1);
+    color: var(--accent-color);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+/* Список особенностей проекта */
+.modal-features {
+    list-style: none;
+    padding: 0;
+}
+
+.modal-features li {
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    color: color-mix(in srgb, var(--text-color) 80%, white);
+}
+
+.modal-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+/* Кнопка ссылки в модальном окне */
+.modal-link {
+    display: inline-block;
+    background: var(--accent-color);
+    color: #000;
+    padding: 12px 30px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+}
+
+.modal-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 221, 138, 0.3);
+}
+
+/* ============================================ */
+/* СООБЩЕНИЕ "ПРОЕКТЫ НЕ НАЙДЕНЫ"              */
+/* ============================================ */
+
+.no-projects {
+    text-align: center;
+    padding: 60px;
+    color: color-mix(in srgb, var(--text-color) 60%, white);
+}
+
+.no-projects p {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+/* ============================================ */
+/* АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)            */
+/* ============================================ */
+
+/* Планшеты и мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+
+    /* Hero секция */
+    .projects-hero h2 {
+        font-size: 2.2rem;
+    }
+
+    /* Сетка проектов */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding: 20px;
+    }
+
+    /* Фильтры */
+    .filter-buttons {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 6px 16px;
+        font-size: 0.8rem;
+    }
+
+    /* Статистика */
+    .stats-grid {
+        gap: 25px;
+    }
+
+    .stat-number {
+        font-size: 2rem;
+    }
+
+    /* Модальное окно */
+    .modal-content {
+        width: 95%;
+        max-height: 90vh;
+        margin: 20px auto;
+    }
+
+    .modal-header {
+        padding: 20px 20px 0;
+    }
+
+    .modal-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .modal-body-content {
+        padding: 20px;
+    }
+
+    .modal-meta {
+        gap: 12px;
+    }
+
+    .modal-meta span {
+        font-size: 0.85rem;
+    }
+}

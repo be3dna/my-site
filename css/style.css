@@ -1,0 +1,923 @@
+/* ============================================ */
+/* ПЕРЕМЕННЫЕ (CSS Custom Properties)           */
+/* ============================================ */
+
+:root {
+    --accent-color: #00dd8a;
+    --background-color: #fff;
+    --text-color: #000;
+}
+
+/* Тёмная тема — переопределяем переменные */
+[data-theme="dark"] {
+    --background-color: #0f0f0f;
+    --text-color: #eee;
+}
+
+/* ============================================ */
+/* ГЛОБАЛЬНЫЕ СТИЛИ И СБРОСЫ                    */
+/* ============================================ */
+
+* {
+    box-sizing: border-box;
+    /* Учитываем padding и border в ширине */
+}
+
+html {
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+body {
+    margin: 0 auto;
+    /* Центрирование по горизонтали */
+}
+
+html,
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ============================================ */
+/* ОСНОВНОЙ КОНТЕЙНЕР                           */
+/* ============================================ */
+
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* ============================================ */
+/* ШРИФТЫ (кастомные)                          */
+/* ============================================ */
+
+.rubik-glitch-regular {
+    font-family: "Rubik Glitch", system-ui;
+}
+
+.montserrat-underline-nav {
+    font-family: "Montserrat Underline", sans-serif;
+    font-weight: 300;
+}
+
+.press-start-2p-regular {
+    font-family: "Press Start 2P", system-ui;
+}
+
+/* ============================================ */
+/* ШАПКА САЙТА (HEADER)                        */
+/* ============================================ */
+
+header {
+    display: inline-flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+}
+
+header>nav {
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    float: right;
+}
+
+header>h1 {
+    font-size: 60px;
+    cursor: default;
+}
+
+header a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+header a:hover {
+    color: var(--accent-color);
+}
+
+/* Альтернативный стиль header (повторяющийся селектор — объединяем) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-height: 150px;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h1 {
+    font-size: 4.5rem;
+    margin: 0;
+}
+
+/* ============================================ */
+/* ДЕСКТОПНОЕ МЕНЮ (НАВИГАЦИЯ)                 */
+/* ============================================ */
+
+.horizontal-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    padding: 0;
+}
+
+.horizontal-menu a {
+    color: var(--text-color);
+    text-decoration: none;
+    display: block;
+}
+
+header a:hover,
+header a:focus {
+    color: var(--accent-color);
+}
+
+/* ============================================ */
+/* ВЫПАДАЮЩЕЕ МЕНЮ (DROPDOWN)                  */
+/* ============================================ */
+
+.dropdown {
+    position: relative;
+    cursor: default;
+    margin-left: 20px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background-color);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 10;
+    border: 1px solid var(--accent-color);
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* ============================================ */
+/* ПОДВАЛ САЙТА (FOOTER)                       */
+/* ============================================ */
+
+footer {
+    width: 100%;
+    display: inline-flex;
+    height: 150px;
+    margin-top: 60px;
+    padding: 30px 0;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer>h2 {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer>nav {
+    display: grid;
+    grid-template-columns: 50px 50px 50px 50px;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-items: center;
+    right: 0;
+    float: right;
+}
+
+footer>nav>button {
+    background-color: inherit;
+    border: 0;
+}
+
+footer>nav>button>img {
+    width: 40px;
+}
+
+/* ============================================ */
+/* КНОПКИ И СОЦИАЛЬНЫЕ ИКОНКИ                   */
+/* ============================================ */
+
+#theme-mode {
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    font-size: 1.8rem;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+
+button {
+    color: var(--background-color);
+    background-color: var(--accent-color);
+    border: solid var(--accent-color);
+}
+
+button:hover {
+    color: var(--text-colorf);
+    /* Примечание: переменная --text-colorf не определена */
+    background-color: var(--accent-color);
+    border: solid var(--text-color);
+}
+
+.social>button {
+    width: 45px;
+    height: 45px;
+    border: 0;
+    padding: 0;--accent-color: #00dd8a;
+        --background-color: #fff;
+        --text-color: #000;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.links-icon {
+    width: 95%;
+    height: 95%;
+}
+
+.icon {
+    width: 100%;
+    height: 100%;
+    color: var(--text-color);
+}
+
+.icon:hover {
+    color: var(--accent-color);
+}
+
+/* ============================================ */
+/* СЕКЦИЯ HERO (БАННЕР)                        */
+/* ============================================ */
+
+#hero-banner {
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 120px 20px;
+    margin: 0 -20px 80px;
+}
+
+.hero-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-tag {
+    color: var(--accent-color);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.hero-text h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+}
+
+.hero-text .highlight {
+    color: var(--accent-color);
+    border-bottom: 3px solid var(--accent-color);
+}
+
+.hero-subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+.hero-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    color: #555;
+}
+
+/* Декоративные элементы hero-блока */
+.hero-decor {
+    position: relative;
+    height: 400px;
+}
+
+.decor-circle {
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, var(--accent-color) 0%, rgba(0, 221, 138, 0.1) 70%);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.decor-dots {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: 150px;
+    background-image: radial-gradient(var(--accent-color) 2px, transparent 2px);
+    background-size: 20px 20px;
+}
+
+/* Кнопка в hero-блоке */
+.btn-primary {
+    background: var(--accent-color);
+    color: black;
+    padding: 14px 32px;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* ============================================ */
+/* СЕКЦИЯ ПРОЕКТОВ                             */
+/* ============================================ */
+
+#projects {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#projects h2 {
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.project-card img:hover {
+    transform: scale(1.02);
+}
+
+.project-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.project-info p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.tech-tag {
+    background: var(--background-color);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: color-mix(in srgb, var(--text-color) 70%, gray);
+}
+
+.btn-secondary {
+    display: inline-block;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    transition: transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+    transform: translateX(5px);
+}
+
+/* ============================================ */
+/* СЕКЦИЯ КАРУСЕЛИ ФОТОГРАФИЙ                  */
+/* ============================================ */
+
+#photo-carousel {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#photo-carousel h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.carousel-subtitle {
+    color: #666;
+    margin-bottom: 40px;
+    font-size: 1.1rem;
+}
+
+.carousel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.carousel-container {
+    flex: 1;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.2);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.carousel-slide {
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+/* Подписи к слайдам */
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: white;
+    padding: 40px 30px 20px;
+    text-align: left;
+}
+
+.slide-caption h4 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.slide-caption p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Кнопки навигации карусели */
+.carousel-btn {
+    background: var(--accent-color);
+    border: none;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    color: #000;
+    flex-shrink: 0;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    transform: scale(1.1);
+    background: #00cc7a;
+    box-shadow: 0 5px 15px rgba(0, 221, 138, 0.4);
+}
+
+.carousel-btn:active {
+    transform: scale(0.95);
+}
+
+/* Индикаторы (точки) карусели */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #ccc;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    width: 28px;
+    border-radius: 5px;
+    background: var(--accent-color);
+}
+
+.dot:hover {
+    background: var(--accent-color);
+    transform: scale(1.2);
+}
+
+/* ============================================ */
+/* ВИДЖЕТ ТЕКУЩЕГО ВРЕМЕНИ                     */
+/* ============================================ */
+
+.time-widget-compact {
+    position: fixed;
+    bottom: 3px;
+    left: 3px;
+    backdrop-filter: blur(8px);
+    padding: 8px 16px;
+    border-radius: 30px;
+    color: var(--text-color);
+    font-family: monospace;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 1000;
+}
+
+/* ============================================ */
+/* ФОРМА СВЯЗИ                                  */
+/* ============================================ */
+
+#contact-form {
+    max-width: 700px;
+    margin: 80px auto;
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 16px;
+    background: var(--background-color);
+    color: var(--text-color);
+    border: 2px solid var(--accent-color);
+    font-size: 1rem;
+}
+
+/* ============================================ */
+/* ГАЛЕРЕЯ                                      */
+/* ============================================ */
+
+#gallery-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#gallery-container img {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    transition: all 0.3s;
+}
+
+#gallery-container img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+/* ============================================ */
+/* СЛАЙДШОУ                                     */
+/* ============================================ */
+
+.slideshow-container {
+    position: relative;
+    height: 420px;
+    margin: 20px 0;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* ============================================ */
+/* МОБИЛЬНОЕ МЕНЮ (БУРГЕР)                     */
+/* ============================================ */
+
+/* Базовые стили для мобильного меню */
+.menu-checkbox {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: var(--text-color);
+}
+
+/* Мобильное меню — скрыто по умолчанию */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--background-color);
+    z-index: 1000;
+    padding: 60px 20px 20px;
+    overflow-y: auto;
+}
+
+/* Открытие меню через чекбокс */
+.menu-checkbox:checked~.mobile-menu {
+    display: block;
+}
+
+/* Кнопка закрытия меню */
+.menu-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+/* Стили списка мобильного меню */
+.vertical-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.vertical-menu>li {
+    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 10%, white);
+}
+
+.vertical-menu>li>a {
+    display: block;
+    padding: 14px 0;
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+/* Мобильный dropdown (выпадающее подменю) */
+.mobile-dropdown {
+    position: relative;
+}
+
+.sub-checkbox {
+    display: none;
+}
+
+.mobile-dropdown-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+.arrow {
+    transition: transform 0.3s ease;
+    font-size: 12px;
+}
+
+/* Подменю — скрыто по умолчанию */
+.mobile-submenu {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+    margin: 0 0 10px 0;
+}
+
+/* Открытие подменю при checked */
+.sub-checkbox:checked~.mobile-submenu {
+    display: block;
+}
+
+/* Поворот стрелки при открытом подменю */
+.sub-checkbox:checked+.mobile-dropdown-toggle .arrow {
+    transform: rotate(180deg);
+}
+
+/* Стили элементов подменю */
+.mobile-submenu li a {
+    display: block;
+    padding: 10px 0;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--text-color) 70%, white);
+}
+
+.mobile-submenu li a:hover {
+    color: var(--accent-color);
+    padding-left: 5px;
+}
+
+/* Активная ссылка в меню */
+.horizontal-menu a.active,
+.vertical-menu a.active {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* ============================================ */
+/* АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)            */
+/* ============================================ */
+
+/* Для экранов шире 1200px */
+@media screen and (min-width: 1200px) {
+    body {
+        width: 1200px;
+    }
+}
+
+/* Для экранов от 800px до 1200px */
+@media screen and (min-width: 800px) and (max-width: 1200px) {
+    body {
+        width: 800px;
+    }
+}
+
+/* Для экранов до 800px */
+@media screen and (max-width: 800px) {
+    body {
+        width: auto;
+    }
+
+    header {
+        display: contents;
+    }
+
+    header>h1 {
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    header>nav {
+        float: none;
+        font-size: larger;
+    }
+
+    header div,
+    a {
+        height: 40px;
+    }
+
+    header>nav p {
+        margin: 0;
+    }
+}
+
+/* Адаптив для планшетов и телефонов (до 768px) */
+@media (max-width: 768px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-text {
+        text-align: center;
+    }
+
+    .hero-decor {
+        display: none;
+    }
+
+    .project-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-card.reverse {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card img {
+        height: 250px;
+    }
+
+    .carousel-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .carousel-slide img {
+        height: 350px;
+    }
+
+    .slide-caption {
+        padding: 20px 15px 10px;
+    }
+
+    .slide-caption h4 {
+        font-size: 1.1rem;
+    }
+
+    .carousel-wrapper {
+        gap: 8px;
+    }
+
+    /* Мобильное меню */
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+}
+
+/* Для очень маленьких экранов (до 480px) */
+@media (max-width: 480px) {
+    .carousel-slide img {
+        height: 250px;
+    }
+
+    .carousel-btn {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+/* Скрываем мобильные элементы на десктопе */
+@media (min-width: 769px) {
+
+    .menu-checkbox,
+    .mobile-menu-btn,
+    .mobile-menu {
+        display: none !important;
+    }
+}

@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обо мне | IURCHENKO</title>
+    
+    <!-- Подключение стилей -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/about.css">
+    
+    <!-- Подключение шрифтов Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@400;500;600;700&family=Press+Start+2P&family=Rubik+Glitch&display=swap" rel="stylesheet">
+    
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body data-theme="light">
+
+<!-- ============================================ -->
+<!-- СКРЫТЫЙ КОНТЕЙНЕР С SVG-ИКОНКАМИ ДЛЯ СОЦСЕТЕЙ -->
+<!-- ============================================ -->
+<div style="display: none">
+    <!-- LinkedIn иконка -->
+    <svg id="LinkedIn" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" viewBox="0 0 24 24" class="links-icon">
+        <path fill="currentColor" d="M18.44 3.06H5.56a2.507 2.507 0 0 0-2.5 2.5v12.88a2.507 2.507 0 0 0 2.5 2.5h12.88a2.5 2.5 0 0 0 2.5-2.5V5.56a2.5 2.5 0 0 0-2.5-2.5m1.5 15.38a1.51 1.51 0 0 1-1.5 1.5H5.56a1.51 1.51 0 0 1-1.5-1.5V5.56a1.51 1.51 0 0 1 1.5-1.5h12.88a1.51 1.51 0 0 1 1.5 1.5Z"></path>
+        <path fill="currentColor" d="M6.376 10.748a1 1 0 1 1 2 0v6.5a1 1 0 0 1-2 0Z"></path>
+        <circle cx="7.376" cy="6.744" r="1" fill="currentColor"></circle>
+        <path fill="currentColor" d="M17.62 13.37v3.88a1 1 0 1 1-2 0v-3.88a1.615 1.615 0 1 0-3.23 0v3.88a1 1 0 0 1-2 0v-6.5a1.016 1.016 0 0 1 1-1a.94.94 0 0 1 .84.47a3.61 3.61 0 0 1 5.39 3.15"></path>
+    </svg>
+
+    <!-- Instagram иконка -->
+    <svg id="instagram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="links-icon" viewBox="0 0 24 24">
+        <path fill="currentColor" fill-rule="evenodd" d="M12 2c-2.716 0-3.056.012-4.123.06c-1.064.049-1.791.218-2.427.465a4.9 4.9 0 0 0-1.772 1.153A4.9 4.9 0 0 0 2.525 5.45c-.247.636-.416 1.363-.465 2.427C2.011 8.944 2 9.284 2 12s.011 3.056.06 4.123c.049 1.064.218 1.791.465 2.427a4.9 4.9 0 0 0 1.153 1.772a4.9 4.9 0 0 0 1.772 1.153c.636.247 1.363.416 2.427.465c1.067.048 1.407.06 4.123.06s3.056-.012 4.123-.06c1.064-.049 1.791-.218 2.427-.465a4.9 4.9 0 0 0 1.772-1.153a4.9 4.9 0 0 0 1.153-1.772c.247-.636.416-1.363.465-2.427c.048-1.067.06-1.407.06-4.123s-.012-3.056-.06-4.123c-.049-1.064-.218-1.791-.465-2.427a4.9 4.9 0 0 0-1.153-1.772a4.9 4.9 0 0 0-1.772-1.153c-.636-.247-1.363-.416-2.427-.465C15.056 2.012 14.716 2 12 2m0 1.802c2.67 0 2.986.01 4.04.058c.976.045 1.505.207 1.858.344c.466.182.8.399 1.15.748c.35.35.566.684.748 1.15c.136.353.3.882.344 1.857c.048 1.055.058 1.37.058 4.041c0 2.67-.01 2.986-.058 4.04c-.045.976-.208 1.505-.344 1.858a3.1 3.1 0 0 1-.748 1.15c-.35.35-.684.566-1.15.748c-.353.136-.882.3-1.857.344c-1.054.048-1.37.058-4.041.058c-2.67 0-2.987-.01-4.04-.058c-.976-.045-1.505-.208-1.858-.344a3.1 3.1 0 0 1-1.15-.748a3.1 3.1 0 0 1-.748-1.15c-.137-.353-.3-.882-.344-1.857c-.048-1.055-.058-1.37-.058-4.041c0-2.67.01-2.986.058-4.04c.045-.976.207-1.505.344-1.858c.182-.466.399-.8.748-1.15c.35-.35.684-.566 1.15-.748c.353-.137.882-.3 1.857-.344c1.055-.048 1.37-.058 4.041-.058m0 11.531a3.333 3.333 0 1 1 0-6.666a3.333 3.333 0 0 1 0 6.666m0-8.468a5.135 5.135 0 1 0 0 10.27a5.135 5.135 0 0 0 0-10.27m6.538-.203a1.2 1.2 0 1 1-2.4 0a1.2 1.2 0 0 1 2.4 0"></path>
+    </svg>
+
+    <!-- X (Twitter) иконка -->
+    <svg id="x-social" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="links-icon" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m3 21l7.5-7.5m3-3L21 3M8 3H3l13 18h5Z"></path>
+    </svg>
+
+    <!-- Telegram иконка -->
+    <svg id="telegram" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="links-icon" viewBox="0 0 24 24">
+        <g fill="currentColor" fill-rule="evenodd" clip-rule="evenodd">
+            <path d="M17.045 8.937A1.47 1.47 0 0 0 15.03 7.35l-8.503 3.515c-1.078.446-.92 2.02.226 2.242l1.591.308c.441.085.899.005 1.284-.226l.464-.277a1.18 1.18 0 0 0 .425 1.53l3.65 2.288a1.176 1.176 0 0 0 1.787-.816zm-5.904 4.51l3.03-2.905c.54-.517-.114-1.373-.755-.99l-4.392 2.629a.65.65 0 0 1-.456.08l-1.591-.308l8.502-3.515a.294.294 0 0 1 .403.317l-1.09 6.979z"></path>
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2M3.176 12a8.824 8.824 0 1 1 17.648 0a8.824 8.824 0 0 1-17.648 0"></path>
+        </g>
+    </svg>
+</div>
+
+<!-- ============================================ -->
+<!-- ОСНОВНОЙ КОНТЕЙНЕР САЙТА -->
+<!-- ============================================ -->
+<div id="wrapper">
+
+    <!-- ==================== ШАПКА САЙТА ==================== -->
+    <header>
+        <!-- Логотип / Название блога -->
+        <h1 class="rubik-glitch-regular">IURCHENKO</h1>
+
+        <!-- ДЕСКТОПНОЕ МЕНЮ -->
+        <nav class="montserrat-underline-nav desktop-nav">
+            <ul class="horizontal-menu">
+                <li><a href="home.html">Главная</a></li>
+                <li><a href="about.html" class="active">О себе</a></li>
+                <li class="dropdown">
+                    <a href="blog.html">Блог ▼</a>
+                    <div class="dropdown-content">
+                        <a href="blog.html?category=frontend">Frontend</a>
+                        <a href="blog.html?category=backend">Backend</a>
+                        <a href="blog.html?category=admin">Администрирование</a>
+                        <a href="blog.html?category=cybersec">CyberSec</a>
+                        <a href="blog.html?category=other">Other</a>
+                    </div>
+                </li>
+                <li><a href="projects.html">Проекты</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="admin.html">Админ-панель</a></li>
+            </ul>
+        </nav>
+
+        <!-- ЧЕКБОКС ДЛЯ УПРАВЛЕНИЯ МОБИЛЬНЫМ МЕНЮ -->
+        <input type="checkbox" id="menuToggle" class="menu-checkbox">
+        <label for="menuToggle" class="mobile-menu-btn">☰</label>
+
+        <!-- МОБИЛЬНОЕ МЕНЮ -->
+        <nav class="mobile-menu">
+            <label for="menuToggle" class="menu-close">✕</label>
+            <ul class="vertical-menu">
+                <li><a href="home.html">Главная</a></li>
+                <li><a href="about.html">О себе</a></li>
+                <li class="mobile-dropdown">
+                    <input type="checkbox" id="blogSub" class="sub-checkbox">
+                    <label for="blogSub" class="mobile-dropdown-toggle">
+                        <span>Блог</span>
+                        <span class="arrow">▼</span>
+                    </label>
+                    <ul class="mobile-submenu">
+                        <li><a href="blog.html?category=frontend">Frontend</a></li>
+                        <li><a href="blog.html?category=backend">Backend</a></li>
+                        <li><a href="blog.html?category=admin">Администрирование</a></li>
+                        <li><a href="blog.html?category=cybersec">CyberSec</a></li>
+                        <li><a href="blog.html?category=other">Other</a></li>
+                        <li><a href="blog.html">Все записи</a></li>
+                    </ul>
+                </li>
+                <li class="mobile-dropdown">
+                    <input type="checkbox" id="projectsSub" class="sub-checkbox">
+                    <label for="projectsSub" class="mobile-dropdown-toggle">
+                        <span>Проекты</span>
+                        <span class="arrow">▼</span>
+                    </label>
+                    <ul class="mobile-submenu">
+                        <li><a href="projects.html">Все проекты</a></li>
+                        <li><a href="projects.html?filter=real">Реальные проекты</a></li>
+                        <li><a href="projects.html?filter=study">Учебные проекты</a></li>
+                    </ul>
+                </li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="admin.html">Админ-панель</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- ==================== ОСНОВНОЙ КОНТЕНТ ==================== -->
+    <main>
+        <!-- Hero секция "Обо мне" -->
+        <section class="about-hero">
+            <div class="container">
+                <div class="about-hero-content">
+                    <div class="about-avatar">
+                        <img id="mainAvatar" src="img/avatar1.jpg" alt="Аватар" onmouseover="previewAvatar('img/avatar2.jpg')" onmouseout="restoreAvatar()">
+                        <div class="avatar-status"></div>
+                    </div>
+
+                    <div class="about-intro">
+                        <span class="hero-badge">Портфолио</span>
+                        <h2>Привет, я <span class="highlight">Никита</span></h2>
+                        <p class="hero-subtitle">Начинающий IT-специалист</p>
+                        <p class="hero-description">
+                            Изучаю Java, Python, администрирование Linux, сети и оборудование Cisco. 
+                            Развиваюсь в направлении разработки и системного администрирования, 
+                            собираю практический опыт на учебных проектах и лабораторных стендах.
+                        </p>
+
+                        <div class="hero-stats">
+                            <div class="stat">
+                                <span class="stat-number">∞</span>
+                                <span class="stat-label">желание учиться</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">10+</span>
+                                <span class="stat-label">учебных проектов</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">практика и развитие</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Биография -->
+        <section class="bio-section">
+            <div class="container">
+                <div class="bio-grid">
+                    <div class="bio-text">
+                        <h3>Моя история</h3>
+                        <p>
+                            Я начинающий IT-специалист, изучаю разработку и системное администрирование. 
+                            В моём стеке — Java, Python, основы сетей, администрирование Linux и работа 
+                            с оборудованием Cisco. Сейчас я активно развиваюсь и ищу свою первую работу в IT.
+                        </p>
+                        <p>
+                            Моя цель — стать универсальным специалистом, который понимает как разработку, 
+                            так и инфраструктуру. Мне интересно, как работают системы «под капотом»: от кода 
+                            приложения до сетевой архитектуры и серверов.
+                        </p>
+                        <p>
+                            В процессе обучения я практикуюсь на учебных проектах, лабораторных стендах Linux 
+                            и сетевых настройках Cisco. Также изучаю лучшие практики разработки и DevOps-подходы, 
+                            чтобы быть полезным в реальных командах.
+                        </p>
+                    </div>
+                    <div class="bio-quote">
+                        <blockquote>
+                            <p>"Главное в IT — не знать всё, а уметь быстро учиться и разбираться в новом."</p>
+                            <cite>— Мой подход к обучению</cite>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Навыки с прогресс-барами -->
+        <section class="skills-section">
+            <div class="container">
+                <h3 class="section-title">Технические навыки</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">JAVA</span>
+                            <span class="skill-percent">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Python</span>
+                            <span class="skill-percent">35%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">Linux</span>
+                            <span class="skill-percent">75%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info">
+                            <span class="skill-name">HTML5 / CSS3</span>
+                            <span class="skill-percent">95%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Таймлайн опыта -->
+        <section class="timeline-section">
+            <div class="container">
+                <h3 class="section-title">Карьерный путь</h3>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-date">2025 — н.в.</div>
+                        <div class="timeline-content">
+                            <h4>Культурный работник</h4>
+                            <p class="timeline-company">ДК</p>
+                            <p>Стройка, починка, разборка, настройка, перевозка, монтаж и другие хозяйственные работы.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интересы и хобби -->
+        <section class="interests-section">
+            <div class="container">
+                <h3 class="section-title">Что меня вдохновляет</h3>
+                <div class="interests-grid">
+                    <div class="interest-card">
+                        <div class="interest-icon">📷</div>
+                        <h4>Фотография</h4>
+                        <p>Люблю снимать городские пейзажи и портреты</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">🎮</div>
+                        <h4>Игры</h4>
+                        <p>Инди-игры и ретро-гейминг</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">📚</div>
+                        <h4>Книги</h4>
+                        <p>Научная фантастика и техническая литература</p>
+                    </div>
+                    <div class="interest-card">
+                        <div class="interest-icon">✈️</div>
+                        <h4>Путешествия</h4>
+                        <p>Изучаю культуру и архитектуру разных стран</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Калькулятор стоимости услуг -->
+        <section class="calculator-section">
+            <div class="container">
+                <h3 class="section-title">Калькулятор стоимости проекта</h3>
+                <div class="calculator-wrapper">
+                    <form id="costCalculator" class="calculator-form">
+                        <div class="form-group">
+                            <label>Тип проекта:</label>
+                            <select id="projectType">
+                                <option value="0">Выберите тип</option>
+                                <option value="30000">Лендинг (от 30 000 ₽)</option>
+                                <option value="90000">Корпоративный сайт (от 90 000 ₽)</option>
+                                <option value="180000">Интернет-магазин (от 180 000 ₽)</option>
+                                <option value="300000">Веб-приложение (от 300 000 ₽)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Объём работы (часы):</label>
+                            <input type="number" id="hours" step="1" min="0" placeholder="Например: 40">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Технологии:</label>
+                            <div class="tech-checkboxes">
+                                <label><input type="checkbox" value="12000" class="tech"> React/Vue (+12 000 ₽)</label>
+                                <label><input type="checkbox" value="9000" class="tech"> Node.js (+9 000 ₽)</label>
+                                <label><input type="checkbox" value="6000" class="tech"> Адаптивная вёрстка (+6 000 ₽)</label>
+                                <label><input type="checkbox" value="15000" class="tech"> Анимации/JS эффекты (+15 000 ₽)</label>
+                                <label><input type="checkbox" value="18000" class="tech"> Админ-панель (+18 000 ₽)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Дополнительные услуги:</label>
+                            <div class="extra-checkboxes">
+                                <label><input type="checkbox" value="6000" class="extra"> SEO оптимизация (+6 000 ₽)</label>
+                                <label><input type="checkbox" value="5000" class="extra"> Настройка аналитики (+5 000 ₽)</label>
+                                <label><input type="checkbox" value="9000" class="extra"> Контент-менеджмент (+9 000 ₽)</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Итоговая стоимость:</label>
+                            <input type="text" id="totalCost" readonly placeholder="0 ₽" style="background: #f0f0f0; font-weight: bold; font-size: 1.2rem;">
+                        </div>
+
+                        <button type="button" class="btn-primary" onclick="calculateCost()">Рассчитать стоимость</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==================== ПОДВАЛ САЙТА ==================== -->
+    <footer>
+        <h2 class="press-start-2p-regular">Let's work together!</h2>
+        
+        <!-- Блок социальных сетей (ссылки вместо кнопок) -->
+        <nav class="social">
+            <a href="https://linkedin.com/in/ваш-профиль" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg class="icon">
+                    <use href="#LinkedIn"></use>
+                </svg>
+            </a>
+            <a href="https://instagram.com/ваш-профиль" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg class="icon">
+                    <use href="#instagram"></use>
+                </svg>
+            </a>
+            <a href="https://twitter.com/ваш-профиль" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                <svg class="icon">
+                    <use href="#x-social"></use>
+                </svg>
+            </a>
+            <a href="https://t.me/ваш-username" target="_blank" rel="noopener noreferrer" aria-label="Telegram">
+                <svg class="icon">
+                    <use href="#telegram"></use>
+                </svg>
+            </a>
+        </nav>
+    </footer>
+
+    <!-- КНОПКА ПЕРЕКЛЮЧЕНИЯ ТЕМЫ (светлая/темная) -->
+    <button id="theme-mode" onclick="toggleTheme()">🌙</button>
+</div>
+
+<!-- ============================================ -->
+<!-- ПОДКЛЮЧЕНИЕ JAVASCRIPT ФАЙЛОВ -->
+<!-- ============================================ -->
+<script src="js/about.js"></script>
+<script src="js/common.js"></script>
+
+</body>
+</html>

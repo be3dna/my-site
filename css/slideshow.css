@@ -1,0 +1,243 @@
+/* ============================================ */
+/* СТИЛИ ДЛЯ СТРАНИЦЫ СЛАЙД-ШОУ (ЛАБА №8)      */
+/* ============================================ */
+
+/* ============================================ */
+/* HERO СЕКЦИЯ СЛАЙД-ШОУ                       */
+/* ============================================ */
+
+.slideshow-hero {
+    padding: 60px 20px 40px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 221, 138, 0.05) 0%, transparent 100%);
+}
+
+.slideshow-hero h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    color: var(--text-color);
+}
+
+.slideshow-hero p {
+    color: color-mix(in srgb, var(--text-color) 70%, white);
+}
+
+/* ============================================ */
+/* ДЕМОНСТРАЦИОННАЯ СЕКЦИЯ                     */
+/* ============================================ */
+
+.slideshow-demo {
+    padding: 40px 20px 80px;
+}
+
+/* ============================================ */
+/* КОНТЕЙНЕР СЛАЙД-ШОУ                         */
+/* ============================================ */
+
+.slideshow-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* === Контейнер с эффектом перекрестного затухания (crossfade) === */
+.fade-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 500px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Изображения внутри контейнера */
+.fade-container .slide-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Первое изображение (текущее) — видимо по умолчанию */
+.fade-container .from {
+    display: block;
+    z-index: 2;
+}
+
+/* Остальные изображения (следующие) — скрыты */
+.fade-container .to {
+    display: none;
+    z-index: 1;
+}
+
+/* ============================================ */
+/* ПАНЕЛЬ УПРАВЛЕНИЯ СЛАЙД-ШОУ                 */
+/* ============================================ */
+
+.slideshow-controls {
+    max-width: 500px;
+    margin: 40px auto 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: center;
+    padding: 25px 30px;
+    background: color-mix(in srgb, var(--accent-color) 5%, transparent);
+    border-radius: 20px;
+    border: 1px solid color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+/* === Управление скоростью смены слайдов === */
+.speed-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.speed-control label {
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Стилизация ползунка (range input) */
+.speed-control input {
+    width: 250px;
+    height: 5px;
+    -webkit-appearance: none;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+/* Стиль "бегунка" ползунка для WebKit-браузеров */
+.speed-control input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.speed-control input::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+/* Отображение текущего значения скорости */
+.speed-control span {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    font-weight: 500;
+    min-width: 70px;
+}
+
+/* === Группа кнопок управления === */
+.action-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.control-btn {
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Кнопка "Старт / Запустить" */
+.control-btn.start {
+    background: var(--accent-color);
+    color: #000;
+}
+
+.control-btn.start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 221, 138, 0.4);
+}
+
+/* Кнопка "Стоп / Остановить" */
+.control-btn.stop {
+    background: #ff4444;
+    color: white;
+}
+
+.control-btn.stop:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+}
+
+/* === Индикатор статуса слайд-шоу === */
+.slideshow-status {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background: rgba(0, 221, 138, 0.1);
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+/* ============================================ */
+/* АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)            */
+/* ============================================ */
+
+/* Планшеты и мобильные устройства (до 768px) */
+@media (max-width: 768px) {
+
+    /* Уменьшаем высоту контейнера слайд-шоу */
+    .fade-container {
+        height: 350px;
+    }
+
+    /* Уменьшаем кнопки управления */
+    .control-btn {
+        padding: 8px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Уменьшаем отступы в панели управления */
+    .slideshow-controls {
+        padding: 20px;
+        gap: 15px;
+    }
+
+    /* Адаптация блока выбора скорости */
+    .speed-control {
+        gap: 10px;
+    }
+
+    .speed-control input {
+        width: 180px;
+    }
+}
+
+/* Маленькие телефоны (до 480px) */
+@media (max-width: 480px) {
+
+    /* Ещё больше уменьшаем высоту контейнера */
+    .fade-container {
+        height: 250px;
+    }
+
+    /* Уменьшаем расстояние между кнопками */
+    .action-buttons {
+        gap: 10px;
+    }
+
+    /* Уменьшаем размер кнопок */
+    .control-btn {
+        padding: 6px 15px;
+        font-size: 0.8rem;
+    }
+}

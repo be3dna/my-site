@@ -1,0 +1,481 @@
+/* ============================================ */
+/* about.css — стили для страницы "Обо мне"    */
+/* ============================================ */
+
+/* ============================================ */
+/* HERO СЕКЦИЯ (АВАТАР + ПРИВЕТСТВИЕ)          */
+/* ============================================ */
+
+.about-hero {
+    padding: 80px 20px 60px;
+    background: linear-gradient(135deg, rgba(0, 221, 138, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.about-hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+/* === Блок с аватаром === */
+.about-avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.about-avatar img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
+}
+
+/* Индикатор статуса (онлайн/оффлайн) с анимацией пульсации */
+.avatar-status {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    border: 3px solid white;
+    animation: pulse 2s infinite;
+}
+
+/* === Текстовая часть hero === */
+.about-intro {
+    flex: 1;
+}
+
+.about-intro h2 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+}
+
+.about-intro .highlight {
+    color: var(--accent-color);
+}
+
+/* Бейдж (тэг) над заголовком */
+.hero-badge {
+    display: inline-block;
+    background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+    color: var(--accent-color);
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Описание */
+.hero-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: color-mix(in srgb, var(--text-color) 70%, white);
+}
+
+/* Статистика (годы опыта, проекты, клиенты) */
+.hero-stats {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: color-mix(in srgb, var(--text-color) 60%, white);
+}
+
+/* ============================================ */
+/* СЕКЦИЯ БИОГРАФИИ                            */
+/* ============================================ */
+
+.bio-section {
+    padding: 60px 20px;
+    background: var(--background-color);
+}
+
+.bio-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: start;
+}
+
+/* Биографический текст */
+.bio-text h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.bio-text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: color-mix(in srgb, var(--text-color) 75%, white);
+}
+
+.bio-text a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+/* Цитата */
+.bio-quote blockquote {
+    background: color-mix(in srgb, var(--accent-color) 5%, transparent);
+    border-left: 4px solid var(--accent-color);
+    padding: 30px;
+    border-radius: 16px;
+    font-style: italic;
+}
+
+.bio-quote p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.bio-quote cite {
+    color: color-mix(in srgb, var(--text-color) 60%, white);
+    font-size: 0.9rem;
+}
+
+/* ============================================ */
+/* СЕКЦИЯ НАВЫКОВ (SKILLS)                     */
+/* ============================================ */
+
+.skills-section {
+    padding: 60px 20px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 50px;
+}
+
+.skills-grid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.skill-item {
+    width: 100%;
+}
+
+/* Название навыка и процент */
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+/* Фоновая полоска */
+.skill-bar {
+    height: 8px;
+    background: color-mix(in srgb, var(--text-color) 10%, white);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* Заполненная полоска (анимируется при появлении) */
+.skill-progress {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent-color), color-mix(in srgb, var(--accent-color) 70%, white));
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* ============================================ */
+/* СЕКЦИЯ ТАЙМЛАЙН (ОПЫТ РАБОТЫ)               */
+/* ============================================ */
+
+.timeline-section {
+    padding: 60px 20px;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Вертикальная линия таймлайна */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: color-mix(in srgb, var(--accent-color) 30%, transparent);
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 40px;
+}
+
+/* Точка на линии таймлайна */
+.timeline-dot {
+    position: absolute;
+    left: -5px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    background: var(--accent-color);
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-color) 20%, transparent);
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.timeline-content h4 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.timeline-company {
+    color: color-mix(in srgb, var(--text-color) 60%, white);
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    line-height: 1.6;
+    color: color-mix(in srgb, var(--text-color) 70%, white);
+}
+
+/* ============================================ */
+/* СЕКЦИЯ ИНТЕРЕСОВ (ХОББИ)                    */
+/* ============================================ */
+
+.interests-section {
+    padding: 60px 20px;
+}
+
+.interests-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.interest-card {
+    text-align: center;
+    padding: 30px 20px;
+    background: var(--background-color);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.interest-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 221, 138, 0.15);
+}
+
+.interest-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.interest-card h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.interest-card p {
+    color: color-mix(in srgb, var(--text-color) 60%, white);
+    font-size: 0.9rem;
+}
+
+/* ============================================ */
+/* СЕКЦИЯ КАЛЬКУЛЯТОРА СТОИМОСТИ ПРОЕКТА       */
+/* ============================================ */
+
+.calculator-section {
+    padding: 60px 20px;
+    background: color-mix(in srgb, var(--text-color) 3%, transparent);
+}
+
+.calculator-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--background-color);
+    padding: 30px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 221, 138, 0.2);
+}
+
+/* Группа полей формы калькулятора */
+.calculator-form .form-group {
+    margin-bottom: 20px;
+}
+
+.calculator-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+/* Стилизация селектов и полей ввода */
+.calculator-form select,
+.calculator-form input[type="number"] {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: var(--background-color);
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.calculator-form select:focus,
+.calculator-form input[type="number"]:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(0, 221, 138, 0.1);
+}
+
+/* Группы чекбоксов (технологии и доп. услуги) */
+.tech-checkboxes,
+.extra-checkboxes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tech-checkboxes label,
+.extra-checkboxes label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+.tech-checkboxes input[type="checkbox"],
+.extra-checkboxes input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+/* Поле с итоговой стоимостью */
+#totalCost {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    background: #f5f5f5;
+    text-align: center;
+}
+
+/* ============================================ */
+/* АНИМАЦИИ                                     */
+/* ============================================ */
+
+/* Анимация пульсации для статуса */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+/* ============================================ */
+/* АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)            */
+/* ============================================ */
+
+@media (max-width: 768px) {
+
+    /* Hero секция на мобильных */
+    .about-hero-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-stats {
+        justify-content: center;
+    }
+
+    /* Биография — в колонку */
+    .bio-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    /* Таймлайн — сдвигаем линию влево */
+    .timeline::before {
+        left: 10px;
+    }
+
+    .timeline-item {
+        padding-left: 35px;
+    }
+
+    .timeline-dot {
+        left: 4px;
+    }
+
+    /* Калькулятор — уменьшаем отступы */
+    .calculator-wrapper {
+        padding: 20px;
+    }
+
+    .tech-checkboxes,
+    .extra-checkboxes {
+        gap: 10px;
+    }
+
+    .tech-checkboxes label,
+    .extra-checkboxes label {
+        font-size: 0.9rem;
+    }
+}

@@ -1,0 +1,443 @@
+/* ============================================ */
+/* admin.css — стили для админ-панели          */
+/* ============================================ */
+
+/* ============================================ */
+/* ОСНОВНОЙ КОНТЕЙНЕР АДМИН-ПАНЕЛИ             */
+/* ============================================ */
+
+.admin-container {
+    display: flex;
+    min-height: calc(100vh - 120px);
+    /* Вычитаем высоту header/footer */
+}
+
+/* ============================================ */
+/* БОКОВОЕ МЕНЮ (SIDEBAR)                      */
+/* ============================================ */
+
+.admin-sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+    color: white;
+    padding: 20px 0;
+    flex-shrink: 0;
+    /* Запрещаем сжатие боковой панели */
+}
+
+/* === Блок информации о пользователе === */
+.admin-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 20px;
+}
+
+.admin-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+}
+
+.admin-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1rem;
+}
+
+.admin-info span {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+/* === Навигация по вкладкам админки === */
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.admin-nav-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+/* Активная кнопка навигации */
+.admin-nav-btn.active {
+    background: var(--accent-color);
+    color: #000;
+    border-left: 3px solid white;
+}
+
+/* ============================================ */
+/* ОСНОВНОЙ КОНТЕНТ АДМИН-ПАНЕЛИ               */
+/* ============================================ */
+
+.admin-content {
+    flex: 1;
+    /* Занимает всё свободное пространство */
+    padding: 30px;
+    background: #f5f5f5;
+}
+
+/* === Вкладки (табы) === */
+.admin-tab {
+    display: none;
+}
+
+.admin-tab.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Анимация появления вкладки */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.admin-tab h2 {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ============================================ */
+/* СТАТИСТИКА (ДАШБОРД)                        */
+/* ============================================ */
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    width: 60px;
+    height: 60px;
+    background: color-mix(in srgb, var(--accent-color) 15%, transparent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--accent-color);
+}
+
+.stat-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0;
+    color: #333;
+}
+
+/* ============================================ */
+/* ТАБЛИЦЫ ДАННЫХ                              */
+/* ============================================ */
+
+.admin-table-wrapper {
+    overflow-x: auto;
+    /* Горизонтальная прокрутка на мобильных */
+    background: white;
+    border-radius: 12px;
+    margin-top: 20px;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.admin-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+}
+
+.admin-table tr:hover {
+    background: #f5f5f5;
+}
+
+/* ============================================ */
+/* КНОПКИ ДЕЙСТВИЙ (РЕДАКТИРОВАТЬ / УДАЛИТЬ)   */
+/* ============================================ */
+
+.action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px 8px;
+    margin: 0 3px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+/* Кнопка "Редактировать" */
+.action-btn.edit {
+    color: #2196F3;
+}
+
+.action-btn.edit:hover {
+    background: #e3f2fd;
+}
+
+/* Кнопка "Удалить" */
+.action-btn.delete {
+    color: #f44336;
+}
+
+.action-btn.delete:hover {
+    background: #ffebee;
+}
+
+/* ============================================ */
+/* ГАЛЕРЕЯ В АДМИН-ПАНЕЛИ                      */
+/* ============================================ */
+
+.admin-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.admin-gallery-item {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.admin-gallery-item img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.admin-gallery-item-info {
+    padding: 10px;
+    text-align: center;
+}
+
+.admin-gallery-item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.9rem;
+}
+
+.admin-gallery-item-actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px 10px;
+}
+
+/* ============================================ */
+/* КНОПКА ДОБАВЛЕНИЯ НОВОГО ЭЛЕМЕНТА           */
+/* ============================================ */
+
+.admin-add-btn {
+    background: var(--accent-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    transition: all 0.3s ease;
+}
+
+.admin-add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 221, 138, 0.3);
+}
+
+/* ============================================ */
+/* МОДАЛЬНОЕ ОКНО                              */
+/* ============================================ */
+
+.admin-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+/* Контент модального окна */
+.admin-modal .modal-content {
+    position: relative;
+    background: white;
+    margin: 5% auto;
+    padding: 30px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 20px;
+    animation: modalSlide 0.3s ease;
+}
+
+/* Анимация появления модального окна */
+@keyframes modalSlide {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Кнопка закрытия модального окна */
+.modal-close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+}
+
+/* ============================================ */
+/* ФОРМЫ В АДМИН-ПАНЕЛИ                        */
+/* ============================================ */
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* ============================================ */
+/* НАСТРОЙКИ (SETTINGS)                        */
+/* ============================================ */
+
+.settings-form {
+    max-width: 500px;
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin-top: 20px;
+}
+
+/* ============================================ */
+/* АДАПТИВНЫЕ СТИЛИ (MEDIA QUERIES)            */
+/* ============================================ */
+
+@media (max-width: 768px) {
+
+    /* Вертикальное расположение на мобильных */
+    .admin-container {
+        flex-direction: column;
+    }
+
+    /* Боковое меню на всю ширину */
+    .admin-sidebar {
+        width: 100%;
+    }
+
+    /* Горизонтальная навигация на мобильных */
+    .admin-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    /* Уменьшаем отступы контента */
+    .admin-content {
+        padding: 20px;
+    }
+
+    /* Статистика в один столбец */
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+}
