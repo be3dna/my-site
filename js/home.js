@@ -147,31 +147,31 @@ setInterval(updateTime, 60_000);
 const carouselData = [
   {
     id: 1,
-    image: "img/photo/20260409-DSC_0043.jpg",
+    image: "img/photo/compressed/20260409-DSC_0043.jpg",
     title: "Тоннель",
     description: "горы",
   },
   {
     id: 2,
-    image: "img/photo/20260409-DSC_0095.jpg",
+    image: "img/photo/compressed/20260409-DSC_0095.jpg",
     title: "Состав",
     description: "станция",
   },
   {
     id: 3,
-    image: "img/photo/20260409-DSC_0186.jpg",
+    image: "img/photo/compressed/20260409-DSC_0186.jpg",
     title: "Лесница",
     description: "Деревня в горах",
   },
   {
     id: 4,
-    image: "img/photo/PXL_20260411_160528712.jpg",
+    image: "img/photo/compressed/PXL_20260411_160528712.jpg",
     title: "Арт-объект",
     description: "Стрит фото",
   },
   {
     id: 5,
-    image: "img/photo/PXL_20260412_074523773.jpg",
+    image: "img/photo/compressed/PXL_20260412_074523773.jpg",
     title: "Народный музей",
     description: "Площадь в центре",
   },
